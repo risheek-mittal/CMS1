@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/accountFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    tools:context=".nav_fragments.AccountFragment">
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_alignParentBottom="true"
+        android:background="?android:attr/listDivider" />
+
+
+    <TextView
+        android:id="@+id/title"
+        style="@style/TextAppearance.AppCompat.Headline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="20dp"
+        android:text="My Profile"
+        android:textColor="@color/white"
+
+        android:textSize="30dp"
+        android:textStyle="bold" />
+
+    <!--    <RelativeLayout-->
+    <!--        android:id="@+id/activity_profile"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_marginTop="50dp"-->
+    <!--        android:layout_height="match_parent"-->
+    <!--        android:layout_gravity="center_horizontal"-->
+    <!--        android:orientation="vertical"-->
+    <!--        tools:context="com.ncrypted.dempproject.Profile">-->
+
+    <!--        <View-->
+    <!--            android:id="@+id/view"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="200dp"-->
+    <!--            android:layout_alignParentStart="true"-->
+    <!--            android:layout_alignParentTop="true"-->
+    <!--            android:layout_marginBottom="50dp" />-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center">
+
+    <com.borutsky.neumorphism.NeumorphicFrameLayout
+        android:id="@+id/firstBlock"
+        android:layout_width="match_parent"
+        android:outlineAmbientShadowColor="@color/black"
+        android:outlineSpotShadowColor="@color/black"
+        android:layout_height="270dp"
+        android:layout_centerHorizontal="true"
+        app:background_color="#51ACC2"
+        android:layout_gravity="center"
+        android:layout_margin="60dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="30dp"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        app:corner_radius="20dp"
+        android:elevation="50dp"
+        android:outlineProvider="bounds"
+        app:shape="circle"
+        app:state="flat">
+
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/bg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:clipToOutline="true"
+            android:background="@drawable/circular"
+            android:src="@drawable/gradient" />
+
+        <ImageButton
+            android:id="@+id/editBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="15dp"
+            android:src="@drawable/edit"
+            android:padding="10dp"
+            android:background="@color/trans"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:outlineProvider="bounds"
+            android:orientation="vertical">
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/myCardView"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                android:elevation="20dp"
+                app:cardCornerRadius="500dp">
+
+                <ImageView
+                    android:id="@+id/profileButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:scaleType="centerCrop"
+                    android:outlineProvider="bounds"
+                    android:src="@drawable/womens2" />
+            </androidx.cardview.widget.CardView>
+
+
+            <LinearLayout
+                android:id="@+id/linear_account"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:orientation="vertical">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/nameInput"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            app:boxBackgroundMode="outline"
+                            android:hint=" ">
+
+                            <EditText
+                                android:id="@+id/name"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@color/trans"
+                                android:padding="5dp"
+                                android:gravity="center"
+                                android:hint="name"
+                                android:enabled="false"
+                                android:textColor="@color/black"
+                                android:imeOptions="actionNext"
+                                android:textStyle="bold"/>
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/emailInput"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint=" "
+                            app:boxBackgroundMode="outline">
+
+                            <EditText
+                                android:id="@+id/email"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@color/trans"
+                                android:gravity="center"
+                                android:padding="5dp"
+                                android:hint="Email Address"
+                                android:enabled="false"
+                                android:imeOptions="actionNext"
+                                android:textColor="@color/black"
+                                android:inputType="textEmailAddress" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </LinearLayout>
+    </com.borutsky.neumorphism.NeumorphicFrameLayout>
+    <!--    </RelativeLayout>-->
+
+    <com.borutsky.neumorphism.NeumorphicFrameLayout
+        android:id="@+id/secondBlock"
+        android:layout_width="match_parent"
+        android:outlineAmbientShadowColor="@color/black"
+        android:outlineSpotShadowColor="@color/black"
+        android:layout_height="70dp"
+        android:layout_centerHorizontal="true"
+        app:background_color="#B7E9F7"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="60dp"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        app:corner_radius="50dp"
+        android:elevation="50dp"
+        android:outlineProvider="bounds"
+        app:shape="circle"
+        app:state="flat">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >:textColor="@color/white"
+                />
+
+            <Button
+                android:id="@+id/addressButton"
+                style="@style/TextAppearance.AppCompat.Headline"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/roundstyle"
+                android:backgroundTint="#51ACC2"
+                android:clipToOutline="true"
+                android:text="Addresses"
+                android:foreground="#51ACC2"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:strokeColor="#FFFFFF" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="My Addressses"
+                style="@style/TextAppearance.AppCompat.Headline"
+                android:gravity="center"
+
+                android:textColor="@color/black"
+                android:elevation="50dp"
+                android:layout_centerInParent="true"
+                />
+        </RelativeLayout>
+    </com.borutsky.neumorphism.NeumorphicFrameLayout>
+
+    </LinearLayout>
+
+</FrameLayout>
