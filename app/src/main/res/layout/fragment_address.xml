@@ -30,7 +30,7 @@
             android:id="@+id/title"
             android:textSize="30dp"
             android:textStyle="bold"
-            android:text="My Addresses"
+            android:text="My Addresses "
 
             style="@style/TextAppearance.AppCompat.Headline"
             android:textColor="@color/black"/>
