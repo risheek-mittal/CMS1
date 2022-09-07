@@ -32,6 +32,17 @@
         android:textSize="30dp"
         android:textStyle="bold" />
 
+    <Switch
+        android:id="@+id/wifiSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Turn On Wi-Fi"
+        android:layout_gravity="end"
+        android:layout_marginRight="20dp"
+        android:textColor="@color/white"
+        android:layout_marginTop="30dp"
+        android:layout_centerInParent="true" />
+
     <!--    <RelativeLayout-->
     <!--        android:id="@+id/activity_profile"-->
     <!--        android:layout_width="match_parent"-->
@@ -82,7 +93,7 @@
             android:scaleType="centerCrop"
             android:clipToOutline="true"
             android:background="@drawable/circular"
-            android:src="@drawable/gradient" />
+            android:src="@drawable/gradient2" />
 
         <ImageButton
             android:id="@+id/editBtn"
@@ -112,6 +123,7 @@
                 android:layout_marginTop="20dp"
                 android:clipChildren="false"
                 android:clipToPadding="false"
+                android:foreground="@drawable/image_border"
                 android:elevation="20dp"
                 app:cardCornerRadius="500dp">
 
@@ -220,8 +232,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            >:textColor="@color/white"
-                />
+            >
 
             <Button
                 android:id="@+id/addressButton"
@@ -229,17 +240,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/roundstyle"
-                android:backgroundTint="#51ACC2"
                 android:clipToOutline="true"
+                android:foreground="#c69351"
                 android:text="Addresses"
-                android:foreground="#51ACC2"
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 app:strokeColor="#FFFFFF" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="My Addressses"
+                android:text="My Addresses"
                 style="@style/TextAppearance.AppCompat.Headline"
                 android:gravity="center"
 

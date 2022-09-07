@@ -41,7 +41,7 @@ class TabHomeFragment : Fragment() {
         val view = inflater.inflate(com.example.ecomm.R.layout.fragment_tab_home, container, false)
         var thisContext = requireActivity().applicationContext
         communicator = activity as Communicator
-        getQuote(thisContext,communicator)
+        getQuote(view,thisContext,communicator)
         view.swipeRefresh.setOnRefreshListener {
             view.swipeRefresh.isRefreshing = false
             refreshFragments()
@@ -49,7 +49,7 @@ class TabHomeFragment : Fragment() {
         return view
     }
 
-    private fun getQuote(context: Context, communicator: Communicator) {
+    private fun getQuote(view: View, context: Context, communicator: Communicator) {
         val retro = Retro().getRetroClient().create(ModelApi::class.java)
         retro.getQuote().enqueue(object : Callback<List<ApiModel>> {
             override fun onResponse(
@@ -58,7 +58,7 @@ class TabHomeFragment : Fragment() {
             ) {
                 Log.d("Return", response.body()!!.toString())
                 for (q in response.body()!!) {
-                    Log.e("Wow", q.title.toString())
+                    Log.e("Wow", q.name.toString())
                 }
                 product = response!!.body()!!
                 Log.d("Rewsponse", response!!.body().toString())
@@ -76,15 +76,16 @@ class TabHomeFragment : Fragment() {
                 }
                 Log.e("suproduct", subProduct.size.toString())
                 adapter = ProductAdapter(context, subProduct)
-                productList.layoutManager = LinearLayoutManager(context)
-                productList.adapter = adapter
+                view.productList.layoutManager = LinearLayoutManager(context)
+                view.productList.adapter = adapter
                 adapter.setOnItemClickListener(object : ProductAdapter.onItemClickListener {
                     override fun onItemClick(position: Int) {
                         communicator.passDataCom(
-                            product[position].title.toString(),
+                            subProduct[position].name.toString(),
+                            subProduct[position].category.toString(),
                             product[position].thumbnail.toString(),
                             product[position].brand.toString(),
-                            product[position].price.toString()
+                            subProduct[position].price.toString()
                         )
 //                        val intent = Intent(requireActivity(), ItemDetailsFragment::class.java)
 //                        requireActivity().startActivity(intent)
@@ -92,7 +93,7 @@ class TabHomeFragment : Fragment() {
 //                            startActivity(Intent(this, ItemDetailsFragment::class.java))
 //                            finish()
                         var bundle = Bundle()
-                        bundle.putString("title", product[position].title)
+                        bundle.putString("title", product[position].name)
                         val itemDetailsFragment = ItemDetailsFragment()
 //                        itemDetailsFragment.requireArguments().putString("title",product[position].title)
                         activity!!

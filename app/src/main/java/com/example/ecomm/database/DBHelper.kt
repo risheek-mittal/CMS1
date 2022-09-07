@@ -1,4 +1,4 @@
-package com.example.amazon.database
+package com.example.ecomm.database
 
 import android.annotation.SuppressLint
 import android.content.ContentValues
@@ -18,7 +18,7 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
         // below is a sqlite query, where column names
         // along with their data types is given
         val query = ("CREATE TABLE " + TABLE_NAME + " ("
-                + ID_COL + " INTEGER PRIMARY KEY, " + TITLE_COL + " TEXT, " + IMAGE_COL + " TEXT, " + QUANTITY_COL + " TEXT, " + PRICE_COL + " TEXT " + ");")
+                + ID_COL + " INTEGER PRIMARY KEY, " + TITLE_COL + " TEXT, " + IMAGE_COL + " TEXT, " + NAME_COL + " TEXT, "+ CATEGORY_COL + " TEXT, " + QUANTITY_COL + " TEXT, " + PRICE_COL + " TEXT " + ");")
         println(query)
         Log.e("Response", query)
         // we are calling sqlite
@@ -76,7 +76,7 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
     }
 
     // This method is for adding data in our database
-    fun addName(name : String, image: String, age : String, quantity : String ){
+    fun addName(title : String, image: String, name: String, category: String, age : String, quantity : String ){
 
         // below we are creating
         // a content values variable
@@ -84,10 +84,12 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
 
         // we are inserting our values
         // in the form of key-value pair
-        values.put(TITLE_COL, name)
+        values.put(TITLE_COL, title)
         values.put(IMAGE_COL, image)
         values.put(QUANTITY_COL, quantity)
         values.put(PRICE_COL, age)
+        values.put(CATEGORY_COL, category)
+        values.put(NAME_COL, name)
 
 
         // here we are creating a
@@ -105,7 +107,7 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
     }
 
     @SuppressLint("Range")
-    fun addQuantity(cartList : List<String>,image : String, title : String, price : String, quantity: String){
+    fun addQuantity(cartList : List<String>,image : String,name : String,category : String, title : String, price : String, quantity: String){
         val values = ContentValues()
         var id = ""
         val db = this.writableDatabase
@@ -144,6 +146,8 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
                 values.put(IMAGE_COL, image)
                 values.put(PRICE_COL, price)
                 values.put(QUANTITY_COL, quantity)
+                values.put(CATEGORY_COL, category)
+                values.put(NAME_COL, name)
             }
         }
         var tableString = java.lang.String.format("Table %s:\n", TABLE_NAME)
@@ -198,7 +202,7 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
         // here we have defined variables for our database
 
         // below is variable for database name
-        private val DATABASE_NAME = "ECOMM"
+        private val DATABASE_NAME = "ECOMM2"
 
         // below is the variable for database version
         private val DATABASE_VERSION = 1
@@ -211,7 +215,9 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
 
         // below is the variable for name column
         val TITLE_COL = "productTitle"
+        val NAME_COL = "userName"
         val IMAGE_COL = "profuctImage"
+        val CATEGORY_COL = "profuctCategory"
 
         // below is the variable for age column
         val PRICE_COL = "productPrice"

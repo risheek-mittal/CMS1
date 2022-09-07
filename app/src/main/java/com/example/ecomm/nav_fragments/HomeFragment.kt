@@ -62,7 +62,7 @@ class HomeFragment : Fragment() {
     }
 
     fun setDynamicFragmentToTabLayout() {
-        var category = arrayListOf<String>("smartphones", "laptops", "fragrances", "skincare", "groceries")
+        var category = arrayListOf<String>("Shoes","clothes", "laptop", "fragrances", "skincare", "groceries")
         for (i in 0..4) {
 //            val retro = Retro().getRetroClient().create(ModelApi::class.java)
 //            retro.getQuote().enqueue(object : Callback<List<ApiModel>> {

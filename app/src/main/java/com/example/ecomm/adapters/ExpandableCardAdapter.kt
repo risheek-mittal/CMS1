@@ -1,22 +1,27 @@
 package com.example.ecomm.adapters
 
 import android.content.Context
+import android.content.SharedPreferences
 import android.os.Build
 import android.os.VibrationEffect
 import android.os.Vibrator
 import android.transition.AutoTransition
 import android.transition.TransitionManager
-import android.view.HapticFeedbackConstants
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.ecomm.AddAddressApiService
+import com.example.ecomm.DeleteAddressApiService
+import com.example.ecomm.EditAddressApiService
 import com.example.ecomm.R
+import com.example.ecomm.`interface`.DeleteAddressApi
+import com.example.ecomm.models.AddAddress
 import com.example.ecomm.models.AddressModel
-import com.example.ecomm.nav_fragments.AddressFragment
-import java.time.Clock.tick
 
 
 class ExpandableCardAdapter(val context: Context, val articles: ArrayList<AddressModel>) : RecyclerView.Adapter<ExpandableCardAdapter.ExpandableCardView>() {
@@ -64,6 +69,11 @@ class ExpandableCardAdapter(val context: Context, val articles: ArrayList<Addres
 
     override fun onBindViewHolder(holder: ExpandableCardView, position: Int) {
         val article = articles[position]
+
+        val preferences: SharedPreferences =
+            context.getSharedPreferences("myPrefs", AppCompatActivity.MODE_PRIVATE)
+        var username = preferences.getString("username", "")
+
         holder.name.text = article.name
         holder.phone.text = article.phone
         holder.address.text = article.address
@@ -108,6 +118,14 @@ class ExpandableCardAdapter(val context: Context, val articles: ArrayList<Addres
                 holder.country.isEnabled = true
                 true
             } else{
+//                val repository = Repository()
+//                runBlocking {
+//                    launch {
+//                        val response = repository.getPost(article.id)
+//                        Log.e("jbsacba",response.body().toString())
+//                    }
+//                }
+                editDummyAddress(article.id,username!!,holder.address.text.toString(),holder.city.text.toString(),holder.state.text.toString(),holder.country.text.toString())
                 holder.editBtn.setImageResource(R.drawable.edit)
                 holder.name.isEnabled = false
                 holder.phone.isEnabled = false
@@ -119,8 +137,10 @@ class ExpandableCardAdapter(val context: Context, val articles: ArrayList<Addres
             }
         }
         holder.deleteBtn.setOnClickListener {
-            articles.removeAt(position)
-            Toast.makeText(context,"Your address has been removed", Toast.LENGTH_SHORT)
+
+//            articles.removeAt(position)
+            deleteDummyAddress(article.id)
+            Toast.makeText(context,"Your address has been removed", Toast.LENGTH_SHORT).show()
             notifyItemRemoved(position)
         }
 
@@ -128,6 +148,54 @@ class ExpandableCardAdapter(val context: Context, val articles: ArrayList<Addres
 
     override fun getItemCount(): Int {
         return articles.size
+    }
+
+    fun editDummyAddress(
+        id:String,
+        username: String,
+        address: String,
+        city: String,
+        state: String,
+        country: String
+    ) {
+
+        val apiService = EditAddressApiService()
+        var userInfo = AddAddress(
+            username, address, city, state, country
+        )
+
+        apiService.addUser(id,userInfo) {
+            if (it?.address != null) {
+                Log.e("axjbakxn", it.toString())
+//                view.product.add(
+//                    AddressModel(
+//                        it._id.toString(),
+//                        "Megha",
+//                        "0987654321",
+//                        it.address.toString(),
+//                        it.city.toString(),
+//                        it.state.toString(),
+//                        it.country.toString(),
+//                    )
+//                )
+            } else {
+                Log.e("", "Error registering new user")
+            }
+        }
+    }
+    fun deleteDummyAddress(
+        id:String
+    ) {
+
+        val apiService = DeleteAddressApiService()
+
+        apiService.addUser(id) {
+            if (it?.acknowledged != null) {
+                Log.e("axjbakxn", it.toString())
+            } else {
+                Log.e("", "Error registering new user")
+            }
+        }
     }
 
 }

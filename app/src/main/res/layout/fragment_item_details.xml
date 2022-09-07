@@ -88,7 +88,7 @@
                 android:layout_height="match_parent"
                 android:elevation="100dp"
                 android:orientation="horizontal"
-                android:background="#d0c2ff">
+                android:background="#cb9c60">
                 <TextView
                     android:id="@+id/productPriceView"
                     android:layout_width="wrap_content"

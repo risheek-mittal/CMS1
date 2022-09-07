@@ -4,15 +4,16 @@ import com.google.gson.annotations.SerializedName
 
 class ApiModel {
     var id: Int? = null
-    var title: String? = null
+    var name: String? = null
     var brand: String? = null
     var category: String? = null
+    var username: String? = null
 //    var images: Product? = null
     var thumbnail: String?= null
     var price: Int?=null
     var stock: Int?=null
-    var discountPercentage: Float?=null
-    var rate: Float?=null
+//    var discountPercentage: Float?=null
+//    var rate: Float?=null
 }
 
 class Product {

@@ -9,6 +9,9 @@
         <entry key="..\:/Users/AGL IT/AndroidStudioProjects/ecomm/app/src/main/res/drawable/edit_text_style.xml" value="0.1" />
         <entry key="..\:/Users/AGL IT/AndroidStudioProjects/ecomm/app/src/main/res/drawable/fade_in.xml" value="0.18" />
         <entry key="..\:/Users/AGL IT/AndroidStudioProjects/ecomm/app/src/main/res/drawable/gradient.xml" value="0.1565" />
+        <entry key="..\:/Users/AGL IT/AndroidStudioProjects/ecomm/app/src/main/res/drawable/gradient2.xml" value="0.1565" />
+        <entry key="..\:/Users/AGL IT/AndroidStudioProjects/ecomm/app/src/main/res/drawable/image_border.xml" value="0.1565" />
+        <entry key="..\:/Users/AGL IT/AndroidStudioProjects/ecomm/app/src/main/res/drawable/out_curve.xml" value="0.1565" />
         <entry key="..\:/Users/AGL IT/AndroidStudioProjects/ecomm/app/src/main/res/drawable/roundstyle.xml" value="0.1295" />
         <entry key="..\:/Users/AGL IT/AndroidStudioProjects/ecomm/app/src/main/res/drawable/subtract.xml" value="0.1" />
         <entry key="..\:/Users/AGL IT/AndroidStudioProjects/ecomm/app/src/main/res/layout/activity_home.xml" value="0.20416666666666666" />
@@ -17,7 +20,7 @@
         <entry key="..\:/Users/AGL IT/AndroidStudioProjects/ecomm/app/src/main/res/layout/activity_second_home.xml" value="0.11991434689507495" />
         <entry key="..\:/Users/AGL IT/AndroidStudioProjects/ecomm/app/src/main/res/layout/activity_splash.xml" value="0.203125" />
         <entry key="..\:/Users/AGL IT/AndroidStudioProjects/ecomm/app/src/main/res/layout/activity_splash_screen.xml" value="0.19010416666666666" />
-        <entry key="..\:/Users/AGL IT/AndroidStudioProjects/ecomm/app/src/main/res/layout/activity_third_home.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/AGL IT/AndroidStudioProjects/ecomm/app/src/main/res/layout/activity_third_home.xml" value="0.25" />
         <entry key="..\:/Users/AGL IT/AndroidStudioProjects/ecomm/app/src/main/res/layout/address_card_layout.xml" value="0.33" />
         <entry key="..\:/Users/AGL IT/AndroidStudioProjects/ecomm/app/src/main/res/layout/bottom_sheet_fragment.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/AGL IT/AndroidStudioProjects/ecomm/app/src/main/res/layout/cart_layout.xml" value="0.22" />
@@ -27,8 +30,8 @@
         <entry key="..\:/Users/AGL IT/AndroidStudioProjects/ecomm/app/src/main/res/layout/fragment_cart.xml" value="0.19010416666666666" />
         <entry key="..\:/Users/AGL IT/AndroidStudioProjects/ecomm/app/src/main/res/layout/fragment_cart2.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/AGL IT/AndroidStudioProjects/ecomm/app/src/main/res/layout/fragment_home.xml" value="0.1" />
-        <entry key="..\:/Users/AGL IT/AndroidStudioProjects/ecomm/app/src/main/res/layout/fragment_home2.xml" value="0.14285714285714285" />
-        <entry key="..\:/Users/AGL IT/AndroidStudioProjects/ecomm/app/src/main/res/layout/fragment_item_details.xml" value="0.22" />
+        <entry key="..\:/Users/AGL IT/AndroidStudioProjects/ecomm/app/src/main/res/layout/fragment_home2.xml" value="0.36929460580912865" />
+        <entry key="..\:/Users/AGL IT/AndroidStudioProjects/ecomm/app/src/main/res/layout/fragment_item_details.xml" value="0.25" />
         <entry key="..\:/Users/AGL IT/AndroidStudioProjects/ecomm/app/src/main/res/layout/fragment_tab_home.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/AGL IT/AndroidStudioProjects/ecomm/app/src/main/res/layout/item_layout.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/AGL IT/AndroidStudioProjects/ecomm/app/src/main/res/layout/parent_row.xml" value="0.22" />

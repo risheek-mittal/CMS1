@@ -55,15 +55,16 @@ class ProductAdapter(val context: Context, val articles: List<ApiModel>) : Recyc
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
         val articles = articles[position]
 //        HomeFragment().setDynamicFragmentToTabLayout(articles)
-        holder.productName.text = articles.title
+        holder.productName.text = articles.name
         holder.productBrand.text = articles.brand
         holder.productPrice.text = "$${articles.price}"
-        holder.productDiscount.text = " (${ articles.discountPercentage.toString() }% off)"
+//        holder.productDiscount.text = " (${ articles.discountPercentage.toString() }% off)"
         holder.productPrice.showStrikeThrough(true)
 //        holder.productDiscountedPrice.text =
-            var price = "${ articles.price!!.toFloat() * (100-articles.discountPercentage!!)/100}"
-        holder.productDiscountedPrice.text = "$${ round(price.toDouble() * 100) / 100 } "
+//            var price = "${ articles.price!!.toFloat() * (100-articles.discountPercentage!!)/100}"
+//        holder.productDiscountedPrice.text = "$${ round(price.toDouble() * 100) / 100 } "
         Glide.with(context).load(articles.thumbnail).into(holder.productImage)
+        Glide.with(context).load("https://i0.wp.com/www.animegeek.com/wp-content/uploads/2022/07/UniqloRED2-1.jpg?resize=1024%2C576&ssl=1").into(holder.productImage)
     }
 
     override fun getItemCount(): Int {

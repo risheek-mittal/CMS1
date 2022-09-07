@@ -10,9 +10,10 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
-import com.example.amazon.database.DBHelper
+import com.example.ecomm.database.DBHelper
 import com.example.ecomm.R
 import kotlinx.android.synthetic.main.fragment_item_details.view.*
 import kotlin.collections.ArrayList
@@ -22,6 +23,7 @@ class ItemDetailsFragment : Fragment() {
 
     private var id: String? =""
     private var title : String? =""
+    private var category : String? =""
     private var thumbnail : String? =""
     private var brand : String? =""
     private var price : String? =""
@@ -42,6 +44,10 @@ class ItemDetailsFragment : Fragment() {
         var view = inflater.inflate(R.layout.fragment_item_details, container, false)
         var button2 = view.findViewById<Button>(R.id.button)
 
+        val preferences: SharedPreferences =
+            requireContext().getSharedPreferences("myPrefs", AppCompatActivity.MODE_PRIVATE)
+        var username = preferences.getString("token", "")
+
 
 //        if (intent.extras != null) {
 //            this.title = intent.getStringExtra("title").toString()
@@ -49,6 +55,7 @@ class ItemDetailsFragment : Fragment() {
 //        }
 
         title = arguments?.getString("title")
+        category = arguments?.getString("category")
         thumbnail = arguments?.getString("thumbnail")
         brand = arguments?.getString("brand")
         price = arguments?.getString("price")
@@ -131,7 +138,7 @@ class ItemDetailsFragment : Fragment() {
             val quantity = 1
             // calling method to add
             // name to our database
-            db.addName(name!!,thumbnail!!, age!!,quantity.toString())
+            db.addName(name!!,thumbnail!!,username!!,category!!, age!!,quantity.toString())
 
             // Toast to message on the screen
             Toast.makeText(thisContext, name + " added to cart", Toast.LENGTH_LONG).show()
@@ -170,7 +177,7 @@ class ItemDetailsFragment : Fragment() {
                 }
             }
             view.more.setOnClickListener {
-                db.addQuantity(cartTitleList,thumbnail!!, title!!, price!!, quantity.toString())
+                db.addQuantity(cartTitleList,thumbnail!!,username!!,category!!, title!!, price!!, quantity.toString())
                 quantity++
                 view.quantityNumber.text = quantity.toString()
             }

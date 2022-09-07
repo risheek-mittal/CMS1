@@ -13,9 +13,9 @@ import androidx.cardview.widget.CardView
 import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.amazon.database.DBHelper
 import com.example.ecomm.R
 import com.example.ecomm.`interface`.MyCallBack
+import com.example.ecomm.database.DBHelper
 import com.example.ecomm.models.CartModel
 import com.example.ecomm.nav_fragments.CartFragment
 
@@ -56,7 +56,7 @@ class CartAdapter(val context: Context, val articles: List<CartModel>, val view:
         holder.productName.text = article.title
         holder.productQuantity.text =article.quantity.toString()
         holder.productPrice.text = "$${article.price.toInt() * article.quantity}"
-        Glide.with(context).load(article.image).into(holder.productImage)
+//        Glide.with(context).load(article.image).into(holder.productImage)
         total = article.totalPrice
         holder.increaseButton.setOnClickListener {
             total+=article.price.toInt()
@@ -73,7 +73,7 @@ class CartAdapter(val context: Context, val articles: List<CartModel>, val view:
 //            }
 //            var id = (cartTitleList.size + 1).toString()
 
-            db.addQuantity(cartList,article.image, article.title, article.price, article.quantity.toString())
+            db.addQuantity(cartList,article.image,"megha@yadav", article.category, article.title, article.price, article.quantity.toString())
             quantity++
             holder.productQuantity.text = quantity.toString()
             holder.productPrice.text = "$${article.price.toInt() * quantity}"

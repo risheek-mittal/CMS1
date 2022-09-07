@@ -29,15 +29,13 @@ class MainActivity : AppCompatActivity() {
         window.setNavigationBarColor(Color.parseColor("#432fbf"))
         image_button.clipToOutline = true
         image_button.setOnClickListener {
-            addDummyUser()
             var isValidEmail = isValidEmail(email.text.toString())
             var isValidName = isValidName(name.text.toString())
             var isValidPassword =
                 passwordValidate(password.text.toString(), confirmPassword.text.toString())
-//            if (isValidName && isValidEmail && isValidPassword) {
-                val intent = Intent(this@MainActivity, SplashScreen::class.java)
-                startActivity(intent)
-//            }
+            if (isValidName && isValidEmail && isValidPassword) {
+            addDummyUser(name.text.toString(),email.text.toString(),password.text.toString(),)
+            }
 //            else{
 //
 //            }
@@ -114,21 +112,29 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun addDummyUser() {
+    fun addDummyUser(name:String, email: String, password: String) {
         val apiService = RestApiService()
         val userInfo = UserInfo(
-            name = "Alex",
-            email = "alex@gmail.com",
-            password = "164E92FC-D37A-4946-81CB-29DE7EE4B124"
+            ufname = name,
+            ulname = "Turner",
+            uemail = email,
+            uphone = "937124912",
+            udob = "12/12/2012",
+            upassword = password
         )
 
         apiService.addUser(userInfo) {
-            if (it?.name != null) {
+            if (it?.fname != null) {
                 Log.e("", it.toString())
+                Toast.makeText(this,"User Created Successfully", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this@MainActivity, SplashScreen::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                startActivity(intent)
+
                 // it = newly added user parsed as response
                 // it?.id = newly added user ID
             } else {
-//                Log.e("", "Error registering new user")
+                Toast.makeText(this,"User Already Exists", Toast.LENGTH_SHORT).show()
             }
         }
     }

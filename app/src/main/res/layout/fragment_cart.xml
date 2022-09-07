@@ -51,7 +51,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:background="#d0c2ff">
+            android:background="#c18a43">
     <TextView
         android:id="@+id/cartTotal"
         android:layout_width="wrap_content"
@@ -69,7 +69,9 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
         android:layout_gravity="center"
+        android:backgroundTint="#cb9c60"
         android:background="@drawable/roundstyle"
+        android:foregroundTint="#cb9c60"
         style="@style/TextAppearance.AppCompat.Headline"
         android:textSize="10dp"
         android:textColor="@color/white"
